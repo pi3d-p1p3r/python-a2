@@ -12,10 +12,10 @@ Academic Session: 2023 – 2024
 
 *Instruction: Write programming code using Python to obtain the outputs and visualize the results for each of the following problems.*
 
-| Name | Roll | Group |
-|------|------|-------|
-|      |      |       |
-|------|------|-------|
+|     Name     |     Roll     | Group |
+|--------------|--------------|-------|
+| Tanvir Kabir |  SH-123-053  |   A   |
+
 
 ## 1. Curve Analysis  
 
