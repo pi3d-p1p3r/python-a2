@@ -12,9 +12,9 @@ Academic Session: 2023 – 2024
 
 *Instruction: Write Python code to obtain the outputs and visualize the results for each problem.*
 
-| Name | Roll | Group |
-|------|------|-------|
-|      |      |       |
+|       Name       |      Roll      | Group |
+|------------------|----------------|-------|
+|   Tanvir Kabir   |   SH-123-053   |   A   |
 
 ## 1. Curve Analysis  
 
@@ -28,7 +28,7 @@ Find the parametric equations of the tangent line to each curve
 
 2.  
    $$
-   \mathbf{r}(t) = e^{-t}\hat{\imath} + t\hat{\jmath} + t^3\hat{k}
+   \mathbf{r}(t) = e^{-t}\hat{\imath} + t\hat{\jmath} + t^3 \hat{k}
    $$
 
 3.  
