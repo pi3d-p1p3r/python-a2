@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-e_t = np.exp(t)
 def derivatives_curve1(t):
+    e_t = np.exp(t)
     r_p  = np.array([ e_t, e_t*(np.cos(t)-np.sin(t)), e_t*(np.sin(t)+np.cos(t)) ])
     r_pp = np.array([ e_t, e_t*(-2*np.sin(t)), e_t*( 2*np.cos(t)) ])
     return r_p, r_pp
@@ -31,6 +31,7 @@ def torsion(r_p, r_pp, r_ppp):
     return np.dot(cross, r_ppp) / (norm_cross**2)
 
 def derivatives_curve1_third(t):
+    e_t = np.exp(t)
     return np.array([ e_t, e_t*(-2*np.cos(t)-2*np.sin(t)), e_t*(-2*np.sin(t)+2*np.cos(t)) ])
 
 def derivatives_curve2_third(t):
