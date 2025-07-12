@@ -1,7 +1,7 @@
 import sympy as sp
 from sympy import symbols, exp, diff
 
-x, y, t = symbols('x y t')
+x, y = symbols('x y')
 
 # Define force field F(x,y) = e^x î + xe^y ĵ
 P = exp(y)        # x-component
