@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from numpy.linalg import norm
 
 def ddt_curve1(t):
     e_t = np.exp(t)
@@ -13,19 +14,19 @@ def ddt_curve2(t):
     return r_p, r_pp
 
 def compute_TNB(r_p, r_pp):
-    T = r_p / np.linalg.norm(r_p)
+    T = r_p / norm(r_p)
     B = np.cross(r_p, r_pp)
-    B /= np.linalg.norm(B)
+    B /= norm(B)
     N = np.cross(B, T)
     return T, N, B
 
 def curvature(r_p, r_pp):
     cross = np.cross(r_p, r_pp)
-    return np.linalg.norm(cross) / (np.linalg.norm(r_p)**3)
+    return norm(cross) / (norm(r_p)**3)
 
 def torsion(r_p, r_pp, r_ppp):
     cross = np.cross(r_p, r_pp)
-    norm_cross = np.linalg.norm(cross)
+    norm_cross = norm(cross)
     if norm_cross == 0:
         return 0.0
     return np.dot(cross, r_ppp) / (norm_cross**2)
