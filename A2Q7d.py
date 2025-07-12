@@ -20,7 +20,7 @@ print(f"∂Q/∂x = {Qx}")
 print(f"Conservative? {is_conservative}")
 
 # Find potential function φ where F = -∇φ
-phi = x*exp(y)
+phi=sp.integrate(P,x)+sp.integrate(Q-sp.diff(sp.integrate(P,x),y),y)
 
 phi_initial = phi.subs({x: 1, y: 0})
 phi_final = phi.subs({x: -1, y: 0})
