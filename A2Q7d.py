@@ -20,7 +20,6 @@ print(f"\n∂P/∂y = {Py}")
 print(f"∂Q/∂x = {Qx}")
 print(f"Conservative? {is_conservative}")
 
-
 # Find potential function φ where F = -∇φ
 phi = -exp(x) - x*exp(y)
 
