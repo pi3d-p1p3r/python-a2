@@ -1,7 +1,6 @@
 import sympy as sp
 from sympy import symbols, exp, diff
 
-# Define symbolic variables
 x, y, t = symbols('x y t')
 
 # Define force field F(x,y) = e^x î + xe^y ĵ
@@ -23,10 +22,9 @@ print(f"Conservative? {is_conservative}")
 # Find potential function φ where F = -∇φ
 phi = -exp(x) - x*exp(y)
 
-# Calculate work using potential difference
 phi_initial = phi.subs({x: 1, y: 0})
 phi_final = phi.subs({x: -1, y: 0})
-work = phi_final - phi_initial
+work = phi_final - phi_initial       # Calculate work using potential difference
 
 print(f"\nPotential function: φ(x,y) = {phi}")
 print(f"Work done = {work.evalf()}")
