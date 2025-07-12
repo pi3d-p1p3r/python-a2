@@ -1,13 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def derivatives_curve1(t):
+def ddt_curve1(t):
     e_t = np.exp(t)
     r_p  = np.array([ e_t, e_t*(np.cos(t)-np.sin(t)), e_t*(np.sin(t)+np.cos(t)) ])
     r_pp = np.array([ e_t, e_t*(-2*np.sin(t)), e_t*( 2*np.cos(t)) ])
     return r_p, r_pp
 
-def derivatives_curve2(t):
+def ddt_curve2(t):
     r_p  = np.array([-2*np.sin(t),  3*np.cos(t), 0])
     r_pp = np.array([-2*np.cos(t), -3*np.sin(t), 0])
     return r_p, r_pp
@@ -30,23 +30,23 @@ def torsion(r_p, r_pp, r_ppp):
         return 0.0
     return np.dot(cross, r_ppp) / (norm_cross**2)
 
-def derivatives_curve1_third(t):
+def ddt_curve1_third(t):
     e_t = np.exp(t)
     return np.array([ e_t, e_t*(-2*np.cos(t)-2*np.sin(t)), e_t*(-2*np.sin(t)+2*np.cos(t)) ])
 
-def derivatives_curve2_third(t):
+def ddt_curve2_third(t):
     return np.array([ 2*np.sin(t), -3*np.cos(t), 0 ])
 
 # Evaluate at t = 0
 t0 = 0
-r1_p, r1_pp    = derivatives_curve1(t0)
-r1_ppp         = derivatives_curve1_third(t0)
+r1_p, r1_pp    = ddt_curve1(t0)
+r1_ppp         = ddt_curve1_third(t0)
 T1, N1, B1     = compute_TNB(r1_p, r1_pp)
 kappa1        = curvature(r1_p, r1_pp)
 tau1          = torsion(r1_p, r1_pp, r1_ppp)
 
-r2_p, r2_pp    = derivatives_curve2(t0)
-r2_ppp         = derivatives_curve2_third(t0)
+r2_p, r2_pp    = ddt_curve2(t0)
+r2_ppp         = ddt_curve2_third(t0)
 T2, N2, B2     = compute_TNB(r2_p, r2_pp)
 kappa2        = curvature(r2_p, r2_pp)
 tau2          = torsion(r2_p, r2_pp, r2_ppp)
@@ -66,8 +66,8 @@ print(f"  κ = {kappa2:.6f}")
 print(f"  τ = {tau2:.6f}\n")
 
 t = np.linspace(0, 2*np.pi, 1000)
-kappa1_vals = [curvature(*derivatives_curve1(ti)) for ti in t]
-kappa2_vals = [curvature(*derivatives_curve2(ti)) for ti in t]
+kappa1_vals = [curvature(*ddt_curve1(ti)) for ti in t]
+kappa2_vals = [curvature(*ddt_curve2(ti)) for ti in t]
 
 # Plot curvature for Curve 1
 plt.figure(figsize=(10, 6))
