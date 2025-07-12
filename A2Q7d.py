@@ -11,7 +11,7 @@ print("Force Field: F(x,y) = e^x î + xe^y ĵ")
 print(f"P(x,y) = {P}, Q(x,y) = {Q}")
 
 # Check if the force field is conservative
-Py = diff(P, y)  # = 0
+Py = diff(P, y)  # = e^y
 Qx = diff(Q, x)  # = e^y
 is_conservative = Py.equals(Qx)
 
