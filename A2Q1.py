@@ -41,11 +41,18 @@ print("\nPart (c):")
 print("Velocity:", v)
 print("Acceleration:", a)
 
-# Plotting theta(t) vs t
-t_vals = np.linspace(0, 10, 100)
-theta_vals = t_vals  # Assuming theta(t) = t for simplicity
-plt.plot(t_vals, theta_vals)
+# θ(t) = arccos( (v · a) / (|v| |a|) )
+theta_expr = sp.acos(v.dot(a) / (v.norm() * a.norm()))
+print("θ(t) =", sp.simplify(theta_expr))
+
+# Plot θ(t) vs t
+theta_func = sp.lambdify(t, theta_expr, 'numpy')
+t_vals = np.linspace(0.01, 10, 500)  # avoid t=0 (zero velocity norm)
+theta_vals = theta_func(t_vals)
+
+plt.plot(t_vals, np.degrees(theta_vals))
 plt.xlabel('t')
-plt.ylabel('theta(t)')
-plt.title('theta(t) vs t')
+plt.ylabel('θ(t) (degrees)')
+plt.title('Angle between Velocity and Acceleration vs t')
+plt.grid(True, linestyle='--')
 plt.show()
